@@ -17,7 +17,7 @@ pipeline{
                         echo"Logging and pushing to DockerHub"
                         
 						withCredentials([usernamePassword(credentialsId :'dockerhub',passwordVariable:'dockerhubPassword',usernameVariable:'userName')]){
-                            sh "docker login -u ${env.userName} -p ${env.dockerPassword}"
+                            sh "docker login -u ${env.userName} -p ${env.dockerhubPassword}"
                             sh "docker push devsantosh03/django-app:latest"
                             
                         }
